@@ -122,8 +122,8 @@ function makeAstronautInteractive() {
     // Función para mover el astronauta
     function moveAstronaut() {
         if (Math.abs(currentX - targetX) > 0.5 || Math.abs(currentY - targetY) > 0.5) {
-            currentX += (targetX - currentX) * 0.05; // Aumenté la velocidad
-            currentY += (targetY - currentY) * 0.05;
+            currentX += (targetX - currentX) * 0.02; // Velocidad suave
+            currentY += (targetY - currentY) * 0.02;
             
             astronaut.style.left = currentX + '%';
             astronaut.style.top = currentY + '%';
@@ -163,23 +163,23 @@ function makeAstronautInteractive() {
         }
     });
     
-    // Movimiento automático más frecuente y activo
+    // Movimiento automático suave
     setInterval(() => {
         if (!mouseNearby) {
             // Generar nueva posición aleatoria
-            targetX = 5 + Math.random() * 85; // Entre 5% y 90% desde la izquierda
-            targetY = 5 + Math.random() * 75; // Entre 5% y 80% desde arriba
+            targetX = 10 + Math.random() * 80; // Entre 10% y 90% desde la izquierda
+            targetY = 10 + Math.random() * 70; // Entre 10% y 80% desde arriba
         }
-    }, 3000); // Cambiar posición cada 3 segundos (más frecuente)
+    }, 6000); // Cambiar posición cada 6 segundos (más suave)
     
-    // Movimiento adicional para que no se quede parado
+    // Movimiento adicional suave para que no se quede parado
     setInterval(() => {
         if (!mouseNearby && !isMoving) {
-            // Pequeño movimiento aleatorio
-            targetX = Math.max(5, Math.min(90, currentX + (Math.random() - 0.5) * 20));
-            targetY = Math.max(5, Math.min(80, currentY + (Math.random() - 0.5) * 20));
+            // Pequeño movimiento aleatorio suave
+            targetX = Math.max(10, Math.min(85, currentX + (Math.random() - 0.5) * 15));
+            targetY = Math.max(10, Math.min(75, currentY + (Math.random() - 0.5) * 15));
         }
-    }, 1500); // Cada 1.5 segundos
+    }, 4000); // Cada 4 segundos
 }
 
 // Función para el dropdown de contacto
