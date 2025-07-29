@@ -1,33 +1,58 @@
-# Aprende Cuando Quieras
+# ALPHABETS Universe 🌌
 
-Una página web simple y elegante con el mensaje "Aprende cuando quieras, y donde quieras".
+Una experiencia web interactiva y espacial para la aplicación ALPHABETS.
 
-## Estructura del Proyecto
+## 🚀 Características
 
-```
-WEB ALPHABETS/
-├── index.html          # Página principal
-├── css/
-│   └── styles.css      # Estilos CSS
-├── js/
-│   └── main.js         # JavaScript
-└── README.md           # Documentación
-```
+- **Astronauta interactivo**: Un astronauta que se mueve por toda la pantalla y esquiva el cursor del ratón
+- **Fondo espacial animado**: Estrellas, nebulosas y planetas flotantes
+- **Diseño responsivo**: Se adapta a diferentes tamaños de pantalla
+- **Efectos visuales**: Animaciones suaves y transiciones elegantes
+- **Botones de descarga**: Enlaces directos a App Store y Google Play
 
-## Características
-
-- **Diseño responsive**: Se adapta a diferentes tamaños de pantalla
-- **Fondo azul suave**: Gradiente con tonos azules claros
-- **Efecto glassmorphism**: Contenedor transparente con blur
-- **Animación suave**: Efecto de aparición al cargar la página
-
-## Cómo usar
-
-1. Abre `index.html` en tu navegador
-2. O usa Live Server en VS Code para desarrollo
-
-## Tecnologías utilizadas
+## 🛠️ Tecnologías
 
 - HTML5
-- CSS3 (Flexbox, Gradientes, Media Queries)
-- JavaScript (ES6+) 
+- CSS3 (con animaciones y gradientes)
+- JavaScript vanilla
+- GitHub Pages para el hosting
+
+## 🌐 Sitio web
+
+Visita: [www.alphabetsuniverse.com](https://www.alphabetsuniverse.com)
+
+## 📱 Descargar ALPHABETS
+
+- [App Store](https://apps.apple.com) 🍎
+- [Google Play](https://play.google.com) 🤖
+
+## 🎮 Cómo funciona
+
+El astronauta flota por la pantalla y:
+- Se mueve automáticamente cada 3 segundos
+- Esquiva el cursor del ratón cuando se acerca
+- Realiza pequeños movimientos aleatorios
+- Explora toda la pantalla, no solo el lado derecho
+
+## 📁 Estructura del proyecto
+
+```
+├── index.html          # Página principal
+├── css/
+│   └── styles.css      # Estilos y animaciones
+├── js/
+│   └── main.js         # Lógica interactiva
+└── README.md           # Este archivo
+```
+
+## 🔧 Desarrollo
+
+Para ejecutar localmente:
+
+1. Clona el repositorio
+2. Abre `index.html` en tu navegador
+3. ¡Disfruta del astronauta flotante!
+
+## 📄 Licencia
+
+Este proyecto es parte de ALPHABETS Universe. 
