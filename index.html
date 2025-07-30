@@ -5,9 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aprende Cuando Quieras</title>
     <script>
-        // Redirección HTTPS automática
+        // Redirección HTTPS inteligente
         if (location.protocol !== 'https:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
-            location.replace(`https:${location.href.substring(location.protocol.length)}`);
+            // Solo redirigir si no hay error de certificado
+            fetch('https:' + location.href.substring(location.protocol.length), { method: 'HEAD' })
+                .then(() => {
+                    location.replace('https:' + location.href.substring(location.protocol.length));
+                })
+                .catch(() => {
+                    // Si HTTPS falla, mantener HTTP
+                    console.log('HTTPS no disponible, manteniendo HTTP');
+                });
         }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
