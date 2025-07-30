@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitud de Eliminación de Cuenta - Alphabets</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            padding-top: 80px; /* Espacio para la cabecera */
+        }
+        
+        /* Barra superior blanca */
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: linear-gradient(90deg, #ffffff, #f8f9fa, #e9ecef);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 2000;
+        }
+
+        .top-bar h2 {
+            color: #000000;
+            font-size: 1.6rem;
+            font-family: 'Nunito', 'Quicksand', sans-serif;
+            font-weight: 800;
+            margin: 0;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .top-bar h2 a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .top-bar h2 a:hover {
+            color: #1E88E5;
+            transform: scale(1.05);
+        }
+
+        /* Menú superior */
+        .top-menu {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            position: relative;
+        }
+
+        .menu-btn {
+            background: transparent;
+            border: none;
+            color: #000000;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .menu-btn:hover {
+            background: rgba(0, 0, 0, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .menu-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Dropdown de contacto */
+        .contact-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 3000;
+            margin-top: 10px;
+            min-width: 250px;
+        }
+
+        .contact-dropdown.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .contact-content {
+            padding: 15px 20px;
+            border-radius: 8px;
+        }
+
+        .contact-email {
+            color: #333;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* Flecha del dropdown */
+        .contact-dropdown::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            right: 20px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid white;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #2C3E50;
+            border-bottom: 3px solid #1E88E5;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: #2C3E50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            color: #2C3E50;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background: #e3f2fd;
+            border: 1px solid #bbdefb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .email-box {
+            background: #f8f9fa;
+            border: 2px solid #1E88E5;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .email-box a {
+            color: #1E88E5;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .email-box a:hover {
+            text-decoration: underline;
+        }
+
+        .steps {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .steps ol {
+            margin-left: 20px;
+        }
+
+        .steps li {
+            margin-bottom: 10px;
+        }
+
+        .data-list {
+            background: #fff5f5;
+            border: 1px solid #fed7d7;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .data-list ul {
+            margin-left: 20px;
+        }
+
+        .data-list li {
+            margin-bottom: 8px;
+        }
+
+        .important-note {
+            background: #ffebee;
+            border: 1px solid #ffcdd2;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #f44336;
+        }
+
+        .emoji {
+            font-size: 1.2em;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra superior -->
+    <div class="top-bar">
+        <h2><a href="index.html">Alphabets</a></h2>
+        <nav class="top-menu">
+            <button class="menu-btn">Pantallas</button>
+            <button class="menu-btn">Descargas</button>
+            <button class="menu-btn contact-btn">Contactar</button>
+            <div class="contact-dropdown">
+                <div class="contact-content">
+                    <span class="contact-email">hello@alphabetsuniverse.com</span>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container">
+        <h1>Solicitud de Eliminación de Cuenta</h1>
+
+        <div class="info-box">
+            <p><strong>¿Quieres eliminar tu cuenta de la app Alphabets Universe?</strong></p>
+            <p>Respetamos tu privacidad y tus derechos sobre tus datos. Si deseas eliminar tu cuenta y toda la información asociada, puedes hacerlo enviándonos un correo electrónico.</p>
+        </div>
+
+        <h2><span class="emoji">📨</span>Pasos para solicitarlo:</h2>
+
+        <div class="steps">
+            <ol>
+                <li><strong>Escribe un email a:</strong> <a href="mailto:support@playalphabets.com">support@playalphabets.com</a></li>
+                <li><strong>Asunto:</strong> Eliminar cuenta</li>
+                <li><strong>En el mensaje, incluye</strong> la dirección de correo con la que te registraste en la app.</li>
+            </ol>
+        </div>
+
+        <div class="email-box">
+            <p><strong>Email de contacto:</strong></p>
+            <p><a href="mailto:support@playalphabets.com">support@playalphabets.com</a></p>
+        </div>
+
+        <div class="info-box">
+            <p><strong>Una vez recibamos tu solicitud, eliminaremos permanentemente tu cuenta y los datos asociados en un plazo de 15 días.</strong></p>
+        </div>
+
+        <h2><span class="emoji">🛡️</span>¿Qué datos se eliminan?</h2>
+
+        <div class="data-list">
+            <ul>
+                <li>Tu cuenta de usuario</li>
+                <li>Palabras guardadas</li>
+                <li>Progreso de lectura o aprendizaje</li>
+                <li>Cualquier otro dato personal vinculado</li>
+            </ul>
+        </div>
+
+        <h2><span class="emoji">🔐</span>Importante:</h2>
+
+        <div class="important-note">
+            <p><strong>Después de la eliminación, no podrás recuperar tu cuenta ni los datos asociados.</strong></p>
+        </div>
+
+        <div class="warning-box">
+            <p><strong>Nota:</strong> Si tienes alguna pregunta sobre este proceso o necesitas ayuda adicional, no dudes en contactarnos a través de nuestro <a href="privacidad-terminos.html">sitio de soporte</a>.</p>
+        </div>
+    </div>
+
+    <script>
+        // Funcionalidad del dropdown de contacto
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactBtn = document.querySelector('.contact-btn');
+            const contactDropdown = document.querySelector('.contact-dropdown');
+            
+            if (contactBtn && contactDropdown) {
+                contactBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    contactDropdown.classList.toggle('active');
+                });
+                
+                // Cerrar dropdown al hacer clic fuera
+                document.addEventListener('click', function() {
+                    contactDropdown.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html> 
